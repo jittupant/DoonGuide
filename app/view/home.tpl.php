@@ -1,5 +1,5 @@
 <?php print_r($variables['header']); ?>
-
+ 
 <!-- Banner
 ================================================== -->
 <div class="main-search-container dark-overlay">
