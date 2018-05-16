@@ -142,6 +142,8 @@
                                     <a href="All-Locality"> <i class="icon-angle-right"></i> All Locality  </a>
                                 </li>
                              </ul>
+                             <a href="AllGym"> <i class="icon-reorder"></i> Gym </a>
+                                <a href="YogaCenter"> <i class="icon-reorder"></i> Yoga Center </a>
 
                         </li>
                        

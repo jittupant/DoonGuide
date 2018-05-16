@@ -103,15 +103,8 @@
                                 </div>
 
                             </div>
-
-
-
-                            <div class="widget-content">
-
-
-
-                                <form id="AddGym">
-                       
+                         <div class="widget-content">
+                        <form id="AddGym">
                         <div class="widget-content">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -137,10 +130,8 @@
                            <div class="form-group">
                                <label class="control-label">Full Address:</label>
                                <div class="editor" name="FullAddress" contenteditable="true"></div>
-                            </div>
-                           
-                            </div>
-
+                           </div>                        
+                           </div>
                             <div class="col-md-6">
                            <div class="form-group">
                                <label class="control-label">Gallery:</label>
@@ -162,7 +153,7 @@
                             </div>
                              <div class="form-group">
                                 <label class="control-label">Remarks:</label>
-                                <div class="editor" contenteditable="true"></div>
+                                <div class="editor" name="Remarks" contenteditable="true"></div>
                             </div>
                         </div>
                         <div class="widget-footer">
@@ -171,37 +162,13 @@
                             </p>
                         </div>
                     </form>
-
-
-
-                            </div>
-
+                           </div>
                         </div>
-
                     </div>
-
-
-
                 </div>
-
             </div>
-
-
-
-
-
-
-
         </div>
-
-
-
-
-
     </div>
-
-
-
 </div>
 
 <style>
