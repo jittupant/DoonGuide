@@ -58,6 +58,15 @@ function get_scriptfiles(&$variables) {
     <script type="text/javascript" src="../app/assets/superadmin/js/plugins/noty/jquery.noty.js"></script>
     <script type="text/javascript" src="../app/assets/superadmin/js/plugins/noty/layouts/top.js"></script>
     <script type="text/javascript" src="../app/assets/superadmin/js/plugins/noty/themes/default.js"></script>
+    <script type="text/javascript" src="../app/assets/superadmin/js/plugins/jquery.popline.js"></script>
+     <script type="text/javascript" src="../app/assets/superadmin/js/plugins/poptext/jquery.popline.link.js"></script>
+  <script type="text/javascript" src="../app/assets/superadmin/js/plugins/poptext/jquery.popline.blockquote.js"></script>
+  <script type="text/javascript" src="../app/assets/superadmin/js/plugins/poptext/jquery.popline.decoration.js"></script>
+  <script type="text/javascript" src="../app/assets/superadmin/js/plugins/poptext/jquery.popline.list.js"></script>
+  <script type="text/javascript" src="../app/assets/superadmin/js/plugins/poptext/jquery.popline.justify.js"></script>
+  <script type="text/javascript" src="../app/assets/superadmin/js/plugins/poptext/jquery.popline.blockformat.js"></script>
+  <script type="text/javascript" src="../app/assets/superadmin/js/plugins/poptext/jquery.popline.social.js"></script>
+  <script type="text/javascript" src="../app/assets/superadmin/js/plugins/poptext/jquery.popline.backcolor.js"></script>
     <script type="text/javascript" src="../app/assets/superadmin/js/plugins/select2/select2.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
@@ -65,7 +74,9 @@ function get_scriptfiles(&$variables) {
     <script type="text/javascript" src="../app/assets/superadmin/js/app.js"></script> 
     <script type="text/javascript" src="../app/assets/superadmin/js/plugins.js"></script> 
     <script type="text/javascript" src="../app/assets/superadmin/js/plugins.form-components.js"></script>
+    <script src="https://use.fontawesome.com/7206b92529.js"></script>
     <script>$(document).ready(function(){App.init();Plugins.init();FormComponents.init()});</script>
+    <script>$(document).ready(function(){$(".editor").popline();});</script>
     <script type="text/javascript" src="../app/assets/superadmin/js/custom.js"></script>
     <script  type="text/javascript" src="../app/assets/superadmin/js/all.js"></script>
     <script> var appEnvironmentPrefix = "' . $env_prefix . '" </script>';
@@ -73,7 +84,11 @@ function get_scriptfiles(&$variables) {
     <link href="../app/assets/superadmin/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="../app/assets/superadmin/css/main.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.css"/>
-    <link href="../app/assets/superadmin/css/themespop/popclip.css" rel="stylesheet" type="text/css" />
+    <link href="../app/assets/superadmin/css/themespop/default.css" rel="stylesheet" type="text/css" />
+  <link href="../app/assets/superadmin/css/themespop/page.css" rel="stylesheet" type="text/css" />
+        <link href="../app/assets/superadmin/css/themespop/normalize.css" rel="stylesheet" type="text/css" />
+         <link href="../app/assets/superadmin/css/themespop/toggle-switch.css" rel="stylesheet" type="text/css" />
+        <link href="../app/assets/superadmin/css/plugins.css" rel="stylesheet" type="text/css"/>
     <link href="../app/assets/superadmin/css/responsive.css" rel="stylesheet" type="text/css" />
     <link href="../app/assets/superadmin/css/icons.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="../app/assets/superadmin/css/fontawesome/font-awesome.min.css">
@@ -173,7 +188,7 @@ function handle_allgym(&$variables) {
 ';
 
     $variables['header'] = render_template('app/template', 'superadminheader', $variables);
-    $variables['script'] = '<script  type="text/javascript" src="app/assets/superadmin/js/manage/login.js"></script>';
+    $variables['script'] = '<script  type="text/javascript" src=""></script>';
     print render_template("app/view/dtsadmin", "allgym", $variables);
 }
 

@@ -113,7 +113,7 @@
                             </div>
                               <div class="form-group">
                                  <label class="control-label">Description:</label>
-                                <div class="editor" name="Description" contenteditable="true"></div>
+                                <textarea class="form-control" name="FullAddress"></textarea>
                                     </div>
                              <div class="form-group">
                                <label class="control-label">Profile Picture:</label>
@@ -129,7 +129,7 @@
                             </div>
                            <div class="form-group">
                                <label class="control-label">Full Address:</label>
-                               <div class="editor" name="FullAddress" contenteditable="true"></div>
+                               <textarea class="form-control" name="FullAddress"></textarea>
                            </div>                        
                            </div>
                             <div class="col-md-6">
@@ -140,7 +140,7 @@
                             <div class="form-group">
                                 <label class="control-label">Locality:</label>
                                  <select name= "Locality" class="select2-select-00 full-width-fix selectddl LocalityID">
-                                        <option>Select Locality</option>  
+                                        <option>Select Locality</option>
                                  </select>
                             </div>
                             <div class="form-group">
@@ -153,7 +153,7 @@
                             </div>
                              <div class="form-group">
                                 <label class="control-label">Remarks:</label>
-                                <div class="editor" name="Remarks" contenteditable="true"></div>
+                             <textarea class="form-control" name="Remark"></textarea>
                             </div>
                         </div>
                         <div class="widget-footer">
@@ -173,7 +173,7 @@
 
 <style>
 
-   /* option {
+  option {
 
     display: none;
 

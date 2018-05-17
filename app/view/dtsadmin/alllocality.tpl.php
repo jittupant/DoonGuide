@@ -50,7 +50,7 @@
                             </div>
 
                             <div class="widget-content">
-                                <table class="table table-striped table-bordered table-hover table-checkable table-tabletools display" id="tblallsociety" style="width: 100%;">
+                                <table class="table table-striped table-bordered table-hover table-checkable table-tabletools display" id="tblalllocality" style="width: 100%;">
                                     <thead>
                                         <tr>
                                             <th>Country</th>
@@ -58,7 +58,7 @@
                                             <th>City</th>
                                             <th>Locality</th>
                                             <th>Status</th>
-                                            <th>Action</th>
+                                            <th style="text-align: center;">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody> 

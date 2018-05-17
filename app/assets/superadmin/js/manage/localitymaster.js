@@ -32,13 +32,13 @@ $("#frmLocality").submit(function (e) {
 
 
 
-var company_table = $('#allcompany').DataTable({
+ Locality_table = $('#tblalllocality').DataTable({
 
     "processing": true,
     "serverSide": true,
     "order": [],
     "ajax": {
-        url: appGetSecureURL('/sms/app/api/company/'),
+        url: appGetSecureURL('/doonguide/app/api/getlocalityall/'),
         type: "GET"
     },
     "columnDefs": [
@@ -48,3 +48,36 @@ var company_table = $('#allcompany').DataTable({
         },
     ],
 });
+
+
+function LocalityDelete(DbKey){
+   
+      $.ajax({
+        url: appGetSecureURL('/doonguide/app/api/deletelocality/'),
+        type: 'POST',
+        dataType: "json",
+        data:{DbKey:DbKey},
+        jsonpCallback: 'jsonCallback',
+        success: function (res) {
+
+            if (res.error == 1) {
+                noty({
+                    text: res.msg,
+                    type: "success",
+                    timeout: 1000,
+                });
+                 Locality_table.ajax.reload();
+               
+            } else {
+                noty({
+                    text: res.msg,
+                    type: "danger",
+                    timeout: 1000,
+                });
+            }
+        },
+    });
+  
+}
+
+
