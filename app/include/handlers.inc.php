@@ -18,6 +18,7 @@ function get_scriptfiles(&$variables) {
     <script type="text/javascript" src="app/assets/scripts/rangeslider.min.js"></script>
     <script type="text/javascript" src="app/assets/scripts/waypoints.min.js"></script>
     <script type="text/javascript" src="app/assets/scripts/magnific-popup.min.js"></script>
+     <script type="text/javascript" src="app/assets/superadmin/js/plugins/select2/select2.min.js"></script>
     <script type="text/javascript" src="app/assets/scripts/counterup.min.js"></script>
     <script type="text/javascript" src="app/assets/scripts/jquery-ui.min.js"></script>
     <script type="text/javascript" src="app/assets/scripts/tooltips.min.js"></script>
@@ -25,12 +26,14 @@ function get_scriptfiles(&$variables) {
     <script type="text/javascript" src="app/assets/scripts/googleapi.js"></script>
     <script type="text/javascript" src="app/assets/scripts/main-script.js"></script>
     <script type="text/javascript" src="app/assets/scripts/sweetalert2.all.min.js"></script>
+    <script type="text/javascript" src="app/js/all.js"></script>
     
     <script> var appEnvironmentPrefix = "' . $env_prefix . '" </script>';
     $variables['stylefiles'] = '
         <link rel="icon" type="image/png" sizes="16x16" href="app/assets/dtsimages/favicon.png">
         <link href="app/assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
         <link href="app/assets/css/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+        <link href="app/assets/superadmin/css/plugins/select2.css" rel="stylesheet" type="text/css" />
         <link href="app/assets/css/colors/main.css" id="colors" rel="stylesheet" type="text/css" />
         <link href="app/assets/css/style.css" rel="stylesheet" type="text/css" />';
     return $variables;
@@ -109,7 +112,7 @@ function handle_home(&$variables) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 ';
 $variables['header'] = render_template('app/template', 'header', $variables);
-    
+ $variables['footer'] = render_template('app/template', 'footer', $variables);   
     $variables['script'] = '<script  type="text/javascript" src="app/js/manage/login.js"></script>';
     print render_template("app/view", "home", $variables);
 }
@@ -143,6 +146,24 @@ function handle_sadashbord(&$variables) {
     
     print render_template("app/view/dtsadmin", "sadashbord", $variables);
 }
+function handle_addlisting(&$variables) {
+
+    get_scriptfiles($variables);
+      $variables['title'] = 'Doon Guide :: Add Our Business ';
+      $variables['dtsmetatag'] = '
+        <meta name="keywords" content="ALL ITEM NEAR ME, SOFTWARE COMPANY IN DEHRADUN MOHKHAMPUR,ZYM NEAR ME,STORE NEAR ME. about 30 to 40 unique words">
+        <meta name="description" content="Welcome to Doon Guide we are offring you all daily bases need in you only just one click we provide you your daily bases need like food ,fast food, grocery item & we are also provide you doctor,plumber,electrician,baarber etc ">
+        <meta name="author" content="Doon Tech Solution">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+';
+
+   $variables['header'] = render_template('app/template', 'header', $variables);
+ $variables['footer'] = render_template('app/template', 'footer', $variables);  
+    $variables['script'] = '<script  type="text/javascript" src="#"></script>';
+    print render_template("app/view", "addlisting", $variables);
+}
+
+
 function handle_alllocality(&$variables) {
 
     get_superadminscriptfiles($variables);
@@ -210,9 +231,10 @@ function handle_yogacenter(&$variables) {
 
 function alter_routes(&$routes) {
    $routes[null] = "handle_home";
+    $routes['Add-Business'] = "handle_addlisting";
    $routes['superadmin'] = "handle_superadmin";
    $routes['superadmin/Home'] = "handle_sadashbord";
    $routes['superadmin/All-Locality'] = "handle_alllocality";
-      $routes['superadmin/AllGym'] = "handle_allgym";
+   $routes['superadmin/AllGym'] = "handle_allgym";
    $routes['superadmin/YogaCenter'] = "handle_yogacenter";
 }

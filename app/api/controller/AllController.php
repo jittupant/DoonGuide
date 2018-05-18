@@ -173,7 +173,7 @@ class GetLocalityAll extends AppResource {
 /**
  * @uri /deletelocality
  */
-class deletelocality extends AppResource {
+class DeleteLocality extends AppResource {
 
      function post($request) {
         $res = array();
@@ -200,5 +200,66 @@ class deletelocality extends AppResource {
 
         return $this->createResponse($request, jsonp_encode($res), $response);
     }
+}
+/**
+ * @uri /localityactive
+ */
+class ActiveStatus extends AppResource {
 
+     function post($request) {
+        $res = array();
+        $response = Response::OK;
+        $input = $this->getInput($request);
+
+        try {
+            $db = DB::getDB();
+            $ActiveStatus = AllModel::ActiveStatus($input,$db);
+            if ($ActiveStatus) {
+                $res['msg'] = "Status Active Sucsessfully";
+                $res['error'] = 1;
+            }else{
+                $res['msg'] = "Unkown Error Please ContactTop Administrator";
+                $res['error'] = 0;
+            }
+        } catch (NotFoundException $ex) {
+            $response = Response::FORBIDDEN;
+            $res['msg'] = "Error Found In Area Details";
+            $res['error'] = 0;
+        }
+
+
+
+        return $this->createResponse($request, jsonp_encode($res), $response);
+    }
+}
+/**
+ * @uri /localityinactive
+ */
+class InActiveStatus extends AppResource {
+
+     function post($request) {
+        $res = array();
+        $response = Response::OK;
+        $input = $this->getInput($request);
+
+        try {
+            $db = DB::getDB();
+            $InActiveStatus = AllModel::InActiveStatus($input,$db);
+            if ($InActiveStatus) {
+                $res['msg'] = "Status InActive Sucsessfully";
+                $res['error'] = 1;
+            }else{
+                $res['msg'] = "Unkown Error Please ContactTop Administrator";
+                $res['error'] = 0;
+            }
+        } catch (NotFoundException $ex) {
+            $response = Response::FORBIDDEN;
+            $res['msg'] = "Error Found In Area Details";
+            $res['error'] = 0;
+        }
+
+
+
+        return $this->createResponse($request, jsonp_encode($res), $response);
+    }
 }

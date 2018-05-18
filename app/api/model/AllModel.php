@@ -68,8 +68,7 @@ class AllModel {
     public function GetCityName($input, $db) {
         try {
             $stmt = $db->prepare("Select cityID,cityName From cities WHERE stateID = :f1");
-            if ($stmt->execute(array(':f1' => $input['
-                ']))) {
+    if ($stmt->execute(array(':f1' => $input['StateId']))) {
                 return $stmt->fetchall(PDO::FETCH_ASSOC);
             } else {
                 return false;
@@ -173,11 +172,39 @@ public function AllLocality($input,$db) {
 
             return false;
         }
+    }
 
+public function ActiveStatus($input,$db){
+          $date = Date('d-m-Y H:i:s');
+          $dateunix = strtotime($date);
+        try {
+            $stmt = $db->prepare("UPDATE `tbl_locality` SET `Status`= :f1,UpdatedOn=:f2 WHERE DbKey = :f3");
+        if ($stmt->execute(array(':f1' => 1,':f2' => $dateunix,':f3' => $input['DbKey']))) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (PDOException $e) {
 
+            return false;
+        }
+    }
+
+public function InActiveStatus($input,$db){
+          $date = Date('d-m-Y H:i:s');
+          $dateunix = strtotime($date);
+        try {
+            $stmt = $db->prepare("UPDATE `tbl_locality` SET `Status`= :f1,UpdatedOn=:f2 WHERE DbKey = :f3");
+        if ($stmt->execute(array(':f1' => 0,':f2' => $dateunix,':f3' => $input['DbKey']))) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (PDOException $e) {
+
+            return false;
+        }
 
 
     }
-
-
-}
+ }

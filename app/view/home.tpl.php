@@ -354,4 +354,5 @@
         <h2 class="flip-hidden">Browse Listings <i class="sl sl-icon-arrow-right"></i></h2>
     </div>
 </a>
+<?php print_r($variables['footer']); ?>
 <?php print_r($variables['scriptfiles']); ?>

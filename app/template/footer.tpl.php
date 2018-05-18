@@ -17,7 +17,7 @@
                         <li><a href="#">Login</a></li>
                         <li><a href="#">Sign Up</a></li>
                         <li><a href="#">My Account</a></li>
-                        <li><a href="#">Add Listing</a></li>
+                        <li><a href="Add-Business">Add Listing</a></li>
                         <li><a href="#">Pricing</a></li>
                         <li><a href="#">Privacy Policy</a></li>
                     </ul>

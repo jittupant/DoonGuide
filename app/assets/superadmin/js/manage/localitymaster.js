@@ -18,7 +18,7 @@ $("#frmLocality").submit(function (e) {
                     type: "success",
                     timeout: 1000,
                 });
-                
+                location.reload();
             } else if (res.error == 0) {
                 noty({
                     text: "<strong>" + res.msg + "</strong>",
@@ -77,7 +77,63 @@ function LocalityDelete(DbKey){
             }
         },
     });
-  
-}
+  }
+function Active(DbKey){
+   
+      $.ajax({
+        url: appGetSecureURL('/doonguide/app/api/localityactive/'),
+        type: 'POST',
+        dataType: "json",
+        data:{DbKey:DbKey},
+        jsonpCallback: 'jsonCallback',
+        success: function (res) {
 
+            if (res.error == 1) {
+                noty({
+                    text: res.msg,
+                    type: "success",
+                    timeout: 1000,
+                });
+                 Locality_table.ajax.reload();
+               
+            } else {
+                noty({
+                    text: res.msg,
+                    type: "danger",
+                    timeout: 1000,
+                });
+            }
+        },
+    });
+   }   
+  
+function Inactive(DbKey){
+   
+      $.ajax({
+        url: appGetSecureURL('/doonguide/app/api/localityinactive/'),
+        type: 'POST',
+        dataType: "json",
+        data:{DbKey:DbKey},
+        jsonpCallback: 'jsonCallback',
+        success: function (res) {
+
+            if (res.error == 1) {
+                noty({
+                    text: res.msg,
+                    type: "success",
+                    timeout: 1000,
+                });
+                 Locality_table.ajax.reload();
+               
+            } else {
+                noty({
+                    text: res.msg,
+                    type: "danger",
+                    timeout: 1000,
+                });
+            }
+        },
+    });
+
+}
 

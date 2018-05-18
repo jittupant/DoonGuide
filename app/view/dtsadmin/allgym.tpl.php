@@ -113,7 +113,7 @@
                             </div>
                               <div class="form-group">
                                  <label class="control-label">Description:</label>
-                                <textarea class="form-control" name="FullAddress"></textarea>
+                                 <div class="editor" name="Description" contenteditable="true"></div>
                                     </div>
                              <div class="form-group">
                                <label class="control-label">Profile Picture:</label>

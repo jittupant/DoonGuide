@@ -141,7 +141,4 @@ $(document).ready(function () {
     });
 });
 
-$('.selectddl').select2({
-    placeholder: 'Select an option'
-});
 
