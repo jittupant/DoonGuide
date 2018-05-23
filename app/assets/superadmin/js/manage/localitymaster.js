@@ -32,7 +32,7 @@ $("#frmLocality").submit(function (e) {
 
 
 
- Locality_table = $('#tblalllocality').DataTable({
+Locality_table = $('#tblalllocality').DataTable({
 
     "processing": true,
     "serverSide": true,
@@ -43,48 +43,65 @@ $("#frmLocality").submit(function (e) {
     },
     "columnDefs": [
         {
-            
+
             "orderable": true,
         },
     ],
 });
 
 
-function LocalityDelete(DbKey){
-   
-      $.ajax({
-        url: appGetSecureURL('/doonguide/app/api/deletelocality/'),
-        type: 'POST',
-        dataType: "json",
-        data:{DbKey:DbKey},
-        jsonpCallback: 'jsonCallback',
-        success: function (res) {
+function LocalityDelete(DbKey) {
+    swal({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then(function (isConfirm) {
+        if (isConfirm) {
+            $.ajax({
+                url: appGetSecureURL('/doonguide/app/api/deletelocality/'),
+                type: 'POST',
+                dataType: "json",
+                data: {DbKey: DbKey},
+                jsonpCallback: 'jsonCallback',
+                success: function (res) {
 
-            if (res.error == 1) {
-                noty({
-                    text: res.msg,
-                    type: "success",
-                    timeout: 1000,
-                });
-                 Locality_table.ajax.reload();
-               
-            } else {
-                noty({
-                    text: res.msg,
-                    type: "danger",
-                    timeout: 1000,
-                });
-            }
-        },
-    });
-  }
-function Active(DbKey){
-   
-      $.ajax({
+                    if (res.error == 1) {
+
+                        swal(
+                                'Deleted!',
+                                res.msg,
+                                'success'
+                                );
+
+                        Locality_table.ajax.reload();
+
+                    } else {
+                        noty({
+                            text: res.msg,
+                            type: "danger",
+                            timeout: 1000,
+                        });
+                    }
+                },
+            });
+
+
+        }
+    })
+    return false;
+
+}
+function Active(DbKey) {
+
+    $.ajax({
         url: appGetSecureURL('/doonguide/app/api/localityactive/'),
         type: 'POST',
         dataType: "json",
-        data:{DbKey:DbKey},
+        data: {DbKey: DbKey},
         jsonpCallback: 'jsonCallback',
         success: function (res) {
 
@@ -94,8 +111,8 @@ function Active(DbKey){
                     type: "success",
                     timeout: 1000,
                 });
-                 Locality_table.ajax.reload();
-               
+                Locality_table.ajax.reload();
+
             } else {
                 noty({
                     text: res.msg,
@@ -105,15 +122,15 @@ function Active(DbKey){
             }
         },
     });
-   }   
-  
-function Inactive(DbKey){
-   
-      $.ajax({
+}
+
+function Inactive(DbKey) {
+
+    $.ajax({
         url: appGetSecureURL('/doonguide/app/api/localityinactive/'),
         type: 'POST',
         dataType: "json",
-        data:{DbKey:DbKey},
+        data: {DbKey: DbKey},
         jsonpCallback: 'jsonCallback',
         success: function (res) {
 
@@ -123,8 +140,8 @@ function Inactive(DbKey){
                     type: "success",
                     timeout: 1000,
                 });
-                 Locality_table.ajax.reload();
-               
+                Locality_table.ajax.reload();
+
             } else {
                 noty({
                     text: res.msg,
@@ -136,4 +153,3 @@ function Inactive(DbKey){
     });
 
 }
-

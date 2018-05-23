@@ -36,6 +36,21 @@ class AllModel {
             echo $e->getMessage();
         }
     }
+    public function GetOnlyCityName($db) {
+       
+        try {
+          
+            $stmt = $db->prepare("Select cityName From cities where countryID = 'IND' LIMIT 200");
+            if ($stmt->execute()) {
+              return $stmt->fetchall(PDO::FETCH_ASSOC);
+            } else {
+                return false;
+            }
+        } catch (PDOException $e) {
+
+            echo $e->getMessage();
+        }
+    }
 
     public function GetStateName($input, $db) {
         try {

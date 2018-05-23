@@ -21,7 +21,7 @@ $(document).ready(function () {
                         value: item.countryID,
                         text: item.countryName
                     }));
-                    
+
                 });
 
             } else {
@@ -38,15 +38,15 @@ $(document).ready(function () {
 
 
 
-function GetState(elem){
+function GetState(elem) {
     var CountryId = elem.value;
     $(".StateID option").remove();
     //$(".StateID").empty();
-      $.ajax({
+    $.ajax({
         url: appGetSecureURL('/doonguide/app/api/getstatename/'),
         type: 'GET',
         dataType: "json",
-        data:{CountryId:CountryId},
+        data: {CountryId: CountryId},
         jsonpCallback: 'jsonCallback',
         success: function (res) {
 
@@ -56,7 +56,7 @@ function GetState(elem){
                         value: item.stateID,
                         text: item.stateName
                     }));
-                    
+
                 });
 
             } else {
@@ -68,30 +68,30 @@ function GetState(elem){
             }
         },
     });
-  
+
 }
 
 
 
-function GetCity(elem){
+function GetCity(elem) {
     var StateId = elem.value;
     $(".CityID option").remove();
-  
-      $.ajax({
+
+    $.ajax({
         url: appGetSecureURL('/doonguide/app/api/getcityname/'),
         type: 'GET',
         dataType: "json",
-        data:{StateId:StateId},
+        data: {StateId: StateId},
         jsonpCallback: 'jsonCallback',
         success: function (res) {
-            console.log(res);
+
             if (res.error == 1) {
                 $.each(res.CityName, function (index, item) {
                     $('.CityID').append($('<option>', {
                         value: item.cityID,
                         text: item.cityName
                     }));
-                    
+
                 });
 
             } else {
@@ -103,10 +103,10 @@ function GetCity(elem){
             }
         },
     });
-    
-    
-    
-    
+
+
+
+
 }
 
 $('.selectddl').select2({
@@ -127,7 +127,7 @@ $(document).ready(function () {
                         value: item.DbKey,
                         text: item.Locality
                     }));
-                    
+
                 });
 
             } else {
@@ -141,4 +141,36 @@ $(document).ready(function () {
     });
 });
 
+
+$(document).on('ready', function () {
+    $(".imageupload").fileinput();
+//    $(".imageupload").fileinput({
+//        showUpload: false,
+//        dropZoneEnabled: false,
+//        maxFileCount: 10,
+//        mainClass: "input-group-lg"
+//    });
+});
+$(document).ready(function () {
+   
+    $.typeahead({
+        input: '.js-typeahead-french_v1',
+        minLength: 0,
+        maxItem: 15,
+        order: "asc",
+        hint: true,
+        accent: true,
+        searchOnFocus: true,
+        backdrop: {
+            "background-color": "#3879d9",
+            "opacity": "0.1",
+            "filter": "alpha(opacity=10)"
+        },
+        source: {
+            ab: appGetSecureURL('/doonguide/app/api/onlycityname/')
+        },
+        debug: true
+    });
+   
+});
 

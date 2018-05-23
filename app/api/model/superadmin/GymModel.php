@@ -1,11 +1,7 @@
 <?php
+class GymModel {
 
-$dirPath = realpath(dirname(__FILE__) . '/..');
-require_once($dirPath . "/config/DB.php");
-
-class AllGymModel {
-
-    public function AddAllGym($input, $db) {
+    public function AddGym($input, $db) {
        $date = date('m-d-Y');
         try {
                 $stmt = $db->prepare("INSERT INTO tbl_gym(DbKey,GymName,Description,ProfilePicture,Video,VirtualTour,FullAddress,Gallery,LocalityDbKey,Payment,PaymentByDbKey,Remarks,Status) VALUES (:f1,:f2,:f3,:f4,:f5,:f6,:f7,:f8,:f9,:f10,:f11,:f12,:f13,:f14,:f15)");
@@ -21,7 +17,7 @@ class AllGymModel {
         }
     }
     
-    public function AllGym($input,$db) {
+    public function GetAllGym($input,$db) {
 
         $query = '';
         $output = array();

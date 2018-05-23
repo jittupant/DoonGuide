@@ -54,13 +54,15 @@ function get_scriptfiles(&$variables) {
     <script type="text/javascript" src="../app/assets/superadmin/js/plugins/event.swipe/jquery.event.swipe.js"></script> 
     <script type="text/javascript" src="../app/assets/superadmin/js/breakpoints.js"></script> 
     <script type="text/javascript" src="../app/assets/superadmin/js/plugins/respond/respond.min.js"></script> 
-    <script type="text/javascript" src="../app/assets/superadmin/js/plugins/fileinput/fileinput.js"></script> 
+    <script type="text/javascript" src="../app/assets/superadmin/fileupload/fileinput.min.js"></script> 
+    
     <script type="text/javascript" src="../app/assets/superadmin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
     <script type="text/javascript" src="../app/assets/superadmin/js/plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script> 
     <script type="text/javascript" src="../app/assets/superadmin/js/plugins/sparkline/jquery.sparkline.min.js"></script>
     <script type="text/javascript" src="../app/assets/superadmin/js/plugins/noty/jquery.noty.js"></script>
     <script type="text/javascript" src="../app/assets/superadmin/js/plugins/noty/layouts/top.js"></script>
     <script type="text/javascript" src="../app/assets/superadmin/js/plugins/noty/themes/default.js"></script>
+    <script type="text/javascript" src="../app/assets/superadmin/js/plugins/typeahead/jquery.typeahead.js"></script>
     <script type="text/javascript" src="../app/assets/superadmin/js/plugins/jquery.popline.js"></script>
      <script type="text/javascript" src="../app/assets/superadmin/js/plugins/poptext/jquery.popline.link.js"></script>
   <script type="text/javascript" src="../app/assets/superadmin/js/plugins/poptext/jquery.popline.blockquote.js"></script>
@@ -71,6 +73,8 @@ function get_scriptfiles(&$variables) {
   <script type="text/javascript" src="../app/assets/superadmin/js/plugins/poptext/jquery.popline.social.js"></script>
   <script type="text/javascript" src="../app/assets/superadmin/js/plugins/poptext/jquery.popline.backcolor.js"></script>
     <script type="text/javascript" src="../app/assets/superadmin/js/plugins/select2/select2.min.js"></script>
+    <script type="text/javascript" src="../app/assets/scripts/sweetalert2.all.min.js"></script>
+    
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript" src="../app/assets/superadmin/js/plugins/blockui/jquery.blockUI.min.js"></script> 
@@ -94,6 +98,10 @@ function get_scriptfiles(&$variables) {
         <link href="../app/assets/superadmin/css/plugins.css" rel="stylesheet" type="text/css"/>
     <link href="../app/assets/superadmin/css/responsive.css" rel="stylesheet" type="text/css" />
     <link href="../app/assets/superadmin/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="../app/assets/superadmin/fileupload/css/fileinput.min.css" rel="stylesheet" type="text/css" />
+    <link href="../app/assets/superadmin/js/plugins/typeahead/jquery.typeahead.css" rel="stylesheet" type="text/css" />
+    
+    <link href="../app/assets/css/sweetalert2.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="../app/assets/superadmin/css/fontawesome/font-awesome.min.css">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet" type="text/css">
     <link href="../app/assets/superadmin/css/error.css" rel="stylesheet" type="text/css" />
@@ -209,7 +217,7 @@ function handle_allgym(&$variables) {
 ';
 
     $variables['header'] = render_template('app/template', 'superadminheader', $variables);
-    $variables['script'] = '<script  type="text/javascript" src=""></script>';
+    $variables['script'] = '<script  type="text/javascript" src="../app/assets/superadmin/js/manage/allgym.js"></script>';
     print render_template("app/view/dtsadmin", "allgym", $variables);
 }
 

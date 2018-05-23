@@ -13,6 +13,8 @@ require_once(dirname(__FILE__) . '/controller/UserController.php');
 require_once(dirname(__FILE__) . '/model/UserModel.php');
 require_once(dirname(__FILE__) . '/controller/AllController.php');
 require_once(dirname(__FILE__) . '/model/AllModel.php');
+require_once(dirname(__FILE__) . '/controller/superadmin/GymController.php');
+require_once(dirname(__FILE__) . '/model/superadmin/GymModel.php');
 
 // handle request
 $request = new Request(array('baseUri' => '/doonguide/app/api'));
