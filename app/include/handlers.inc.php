@@ -228,7 +228,21 @@ function handle_yogacenter(&$variables) {
     $variables['script'] = '<script  type="text/javascript" src="app/assets/superadmin/js/manage/login.js"></script>';
     print render_template("app/view/dtsadmin", "yogacenter", $variables);
 }
+function handle_zym(&$variables) {
 
+    get_scriptfiles($variables);
+      $variables['title'] = 'Doon Guide Gym Dashboard';
+      $variables['dtsmetatag'] = '
+        <meta name="keywords" content="ALL ITEM NEAR ME, SOFTWARE COMPANY IN DEHRADUN MOHKHAMPUR,ZYM NEAR ME,STORE NEAR ME. about 30 to 40 unique words">
+        <meta name="description" content="Welcome to Doon Guide we are offring you all daily bases need in you only just one click we provide you your daily bases need like food ,fast food, grocery item & we are also provide you doctor,plumber,electrician,baarber etc ">
+        <meta name="author" content="Doon Tech Solution">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+';
+
+    $variables['header'] = render_template('app/template', 'vendorheader', $variables);
+    
+    print render_template("app/view/zym", "dashbord", $variables);
+}
 function alter_routes(&$routes) {
    $routes[null] = "handle_home";
     $routes['Add-Business'] = "handle_addlisting";
@@ -237,4 +251,5 @@ function alter_routes(&$routes) {
    $routes['superadmin/All-Locality'] = "handle_alllocality";
    $routes['superadmin/AllGym'] = "handle_allgym";
    $routes['superadmin/YogaCenter'] = "handle_yogacenter";
+   $routes['zym'] = "handle_zym";
 }
