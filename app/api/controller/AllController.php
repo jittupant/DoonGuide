@@ -27,6 +27,33 @@ class GetCountryName extends AppResource {
     }
 }
 /**
+ * @uri /onlycityname
+ */
+class GetOnlyCityName extends AppResource {
+
+     function get($request) {
+        $res = array();
+        $response = Response::OK;
+        
+        try {
+            $db = DB::getDB();
+            $GetOnlyCityName = AllModel::GetOnlyCityName($db);
+            if ($GetOnlyCityName) {
+              
+                $res['CityName'] = $GetOnlyCityName;
+                $res['error'] = 1;
+            }
+        } catch (NotFoundException $ex) {
+            $response = Response::FORBIDDEN;
+            $res['msg'] = "Error Found In Area Details";
+            $res['error'] = 0;
+        }
+       
+      
+        return $this->createResponse($request, jsonp_encode($GetOnlyCityName), $response);
+    }
+}
+/**
  * @uri /getstatename
  */
 class GetStateName extends AppResource {
