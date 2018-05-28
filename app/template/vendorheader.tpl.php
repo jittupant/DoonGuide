@@ -21,9 +21,16 @@
                         </div>
                         <nav id="navigation" class="style-1">
                             <ul id="responsive">
-                                <li><a class="current" href="#">Dashboard</a></li>
-                                <li><a href="#">Manage</a></li>
-                                <li><a href="#">Message</a></li>
+                                <li><a class="current" href="Zym-Dashboard">Dashboard</a></li>
+                                <li><a href="#">Manage</a>
+                                    <ul class="dropdown">
+                                        <li><a href="Zym-Manage">Zym Manage</a></li>
+                                        <li><a href="Member-Manage">Member</a></li>
+                                        <li><a href="Payment-Manage">Zym Fee</a></li>
+                                        
+                                      </ul>
+                                </li>
+                                <li><a href="Message-Manage">Message</a></li>
                                 <li><a href="#">Notification</a></li>
                             </ul>
                         </nav>

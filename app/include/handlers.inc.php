@@ -251,13 +251,80 @@ function handle_zym(&$variables) {
     
     print render_template("app/view/zym", "dashbord", $variables);
 }
+function handle_gymmanage(&$variables) {
+
+    get_scriptfiles($variables);
+      $variables['title'] = 'DTS Gym Manage';
+      $variables['dtsmetatag'] = '
+        <meta name="keywords" content="ALL ITEM NEAR ME, SOFTWARE COMPANY IN DEHRADUN MOHKHAMPUR,ZYM NEAR ME,STORE NEAR ME. about 30 to 40 unique words">
+        <meta name="description" content="Welcome to Doon Guide we are offring you all daily bases need in you only just one click we provide you your daily bases need like food ,fast food, grocery item & we are also provide you doctor,plumber,electrician,baarber etc ">
+        <meta name="author" content="Doon Tech Solution">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+';
+
+    $variables['header'] = render_template('app/template', 'vendorheader', $variables);
+    $variables['script'] = '<script  type="text/javascript" src=""></script>';
+    print render_template("app/view/zym", "gymmanage", $variables);
+}
+function handle_member(&$variables) {
+
+    get_scriptfiles($variables);
+      $variables['title'] = 'DTS Gym Manage';
+      $variables['dtsmetatag'] = '
+        <meta name="keywords" content="ALL ITEM NEAR ME, SOFTWARE COMPANY IN DEHRADUN MOHKHAMPUR,ZYM NEAR ME,STORE NEAR ME. about 30 to 40 unique words">
+        <meta name="description" content="Welcome to Doon Guide we are offring you all daily bases need in you only just one click we provide you your daily bases need like food ,fast food, grocery item & we are also provide you doctor,plumber,electrician,baarber etc ">
+        <meta name="author" content="Doon Tech Solution">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+';
+
+    $variables['header'] = render_template('app/template', 'vendorheader', $variables);
+    $variables['script'] = '<script  type="text/javascript" src=""></script>';
+    print render_template("app/view/zym", "member", $variables);
+}
+function handle_payment(&$variables) {
+
+    get_scriptfiles($variables);
+      $variables['title'] = 'DTS Gym Manage';
+      $variables['dtsmetatag'] = '
+        <meta name="keywords" content="ALL ITEM NEAR ME, SOFTWARE COMPANY IN DEHRADUN MOHKHAMPUR,ZYM NEAR ME,STORE NEAR ME. about 30 to 40 unique words">
+        <meta name="description" content="Welcome to Doon Guide we are offring you all daily bases need in you only just one click we provide you your daily bases need like food ,fast food, grocery item & we are also provide you doctor,plumber,electrician,baarber etc ">
+        <meta name="author" content="Doon Tech Solution">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+';
+
+    $variables['header'] = render_template('app/template', 'vendorheader', $variables);
+    $variables['script'] = '<script  type="text/javascript" src=""></script>';
+    print render_template("app/view/zym", "payment", $variables);
+}
+
+function handle_message(&$variables) {
+
+    get_scriptfiles($variables);
+      $variables['title'] = 'DTS Message';
+      $variables['dtsmetatag'] = '
+        <meta name="keywords" content="ALL ITEM NEAR ME, SOFTWARE COMPANY IN DEHRADUN MOHKHAMPUR,ZYM NEAR ME,STORE NEAR ME. about 30 to 40 unique words">
+        <meta name="description" content="Welcome to Doon Guide we are offring you all daily bases need in you only just one click we provide you your daily bases need like food ,fast food, grocery item & we are also provide you doctor,plumber,electrician,baarber etc ">
+        <meta name="author" content="Doon Tech Solution">
+        <meta name="viewport" 
+        content="width=device-width, initial-scale=1.0">
+';
+
+    $variables['header'] = render_template('app/template', 'vendorheader', $variables);
+    $variables['script'] = '<script  type="text/javascript" src=""></script>';
+print render_template("app/view/zym", "message", $variables);
+}
+
 function alter_routes(&$routes) {
-   $routes[null] = "handle_home";
-    $routes['Add-Business'] = "handle_addlisting";
-   $routes['superadmin'] = "handle_superadmin";
-   $routes['superadmin/Home'] = "handle_sadashbord";
-   $routes['superadmin/All-Locality'] = "handle_alllocality";
-   $routes['superadmin/AllGym'] = "handle_allgym";
-   $routes['superadmin/YogaCenter'] = "handle_yogacenter";
-   $routes['zym'] = "handle_zym";
+$routes[null] = "handle_home";
+$routes['Add-Business'] = "handle_addlisting";
+$routes['superadmin'] = "handle_superadmin";
+$routes['superadmin/Home'] = "handle_sadashbord";
+$routes['superadmin/All-Locality'] ="handle_alllocality";
+$routes['superadmin/AllGym'] = "handle_allgym";
+$routes['superadmin/YogaCenter'] = "handle_yogacenter";
+$routes['Zym-Dashboard'] = "handle_zym";
+$routes['Zym-Manage'] = "handle_gymmanage";
+$routes['Member-Manage'] = "handle_member";
+$routes['Payment-Manage'] = "handle_payment";
+$routes['Message-Manage'] = "handle_message";
 }
